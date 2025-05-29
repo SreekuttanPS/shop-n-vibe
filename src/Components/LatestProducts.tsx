@@ -1,6 +1,15 @@
 import Image from "next/image";
 import React from "react";
 
+import latestProduct1 from "../assets/images/latestproduct-1.jpg";
+import latestProduct2 from "../assets/images/latestproduct-2.jpg";
+import latestProduct3 from "../assets/images/latestproduct-3.jpg";
+import latestProduct4 from "../assets/images/latestproduct-4.jpg";
+import latestProduct5 from "../assets/images/latestproduct-5.jpg";
+import latestProduct6 from "../assets/images/latestproduct-6.jpg";
+import latestProduct7 from "../assets/images/latestproduct-7.jpg";
+import latestProduct8 from "../assets/images/latestproduct-8.jpg";
+
 function LatestProducts() {
   return (
     <section className="py-16">
@@ -22,13 +31,7 @@ function LatestProducts() {
           <div className="product-card group">
             <div className="relative overflow-hidden rounded-lg mb-4">
               <div className="product-img h-72 bg-cover bg-center">
-                <Image
-                  src={
-                    "https://readdy.ai/api/search-image?query=minimalist%20white%20sneakers%20on%20clean%20background%2C%20professional%20product%20photography%20with%20soft%20lighting%2C%20high-end%20fashion%20footwear%20showcase&width=500&height=500&seq=5&orientation=squarish"
-                  }
-                  alt="Tester"
-                  fill={true}
-                />
+                <Image src={latestProduct1} alt="Tester" />
               </div>
               <button className="quick-add absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white text-gray-900 px-4 py-2 rounded-full font-medium text-sm shadow-md hover:bg-primary hover:text-white transition-colors whitespace-nowrap">
                 <i className="ri-add-line ri-lg mr-1"></i> Quick Add
@@ -51,13 +54,7 @@ function LatestProducts() {
           <div className="product-card group">
             <div className="relative overflow-hidden rounded-lg mb-4">
               <div className="product-img h-72 bg-cover bg-center">
-                <Image
-                  src={
-                    "https://readdy.ai/api/search-image?query=premium%20wireless%20headphones%20on%20clean%20background%2C%20professional%20product%20photography%20with%20soft%20lighting%2C%20high-end%20electronics%20showcase&width=500&height=500&seq=6&orientation=squarish"
-                  }
-                  alt="Tester"
-                  fill={true}
-                />
+                <Image src={latestProduct2} alt="Tester" />
               </div>
               <button className="quick-add absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white text-gray-900 px-4 py-2 rounded-full font-medium text-sm shadow-md hover:bg-primary hover:text-white transition-colors whitespace-nowrap">
                 <i className="ri-add-line ri-lg mr-1"></i> Quick Add
@@ -80,13 +77,7 @@ function LatestProducts() {
           <div className="product-card group">
             <div className="relative overflow-hidden rounded-lg mb-4">
               <div className="product-img h-72 bg-cover bg-center">
-                <Image
-                  src={
-                    "https://readdy.ai/api/search-image?query=elegant%20womens%20summer%20dress%20on%20clean%20background%2C%20professional%20product%20photography%20with%20soft%20lighting%2C%20high-end%20fashion%20clothing%20showcase&width=500&height=500&seq=7&orientation=squarish"
-                  }
-                  alt="Tester"
-                  fill={true}
-                />
+                <Image src={latestProduct3} alt="Tester" />
               </div>
               <button className="quick-add absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white text-gray-900 px-4 py-2 rounded-full font-medium text-sm shadow-md hover:bg-primary hover:text-white transition-colors whitespace-nowrap">
                 <i className="ri-add-line ri-lg mr-1"></i> Quick Add
@@ -109,13 +100,7 @@ function LatestProducts() {
           <div className="product-card group">
             <div className="relative overflow-hidden rounded-lg mb-4">
               <div className="product-img h-72 bg-cover bg-center">
-                <Image
-                  src={
-                    "https://readdy.ai/api/search-image?query=modern%20smartwatch%20on%20clean%20background%2C%20professional%20product%20photography%20with%20soft%20lighting%2C%20high-end%20electronics%20showcase&width=500&height=500&seq=8&orientation=squarish"
-                  }
-                  alt="Tester"
-                  fill={true}
-                />
+                <Image src={latestProduct4} alt="Tester" />
               </div>
               <button className="quick-add absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white text-gray-900 px-4 py-2 rounded-full font-medium text-sm shadow-md hover:bg-primary hover:text-white transition-colors whitespace-nowrap">
                 <i className="ri-add-line ri-lg mr-1"></i> Quick Add
@@ -138,13 +123,7 @@ function LatestProducts() {
           <div className="product-card group">
             <div className="relative overflow-hidden rounded-lg mb-4">
               <div className="product-img h-72 bg-cover bg-center">
-                <Image
-                  src={
-                    "https://readdy.ai/api/search-image?query=stylish%20mens%20casual%20shirt%20on%20clean%20background%2C%20professional%20product%20photography%20with%20soft%20lighting%2C%20high-end%20fashion%20clothing%20showcase&width=500&height=500&seq=9&orientation=squarish"
-                  }
-                  alt="Tester"
-                  fill={true}
-                />
+                <Image src={latestProduct5} alt="Tester" />
               </div>
               <button className="quick-add absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white text-gray-900 px-4 py-2 rounded-full font-medium text-sm shadow-md hover:bg-primary hover:text-white transition-colors whitespace-nowrap">
                 <i className="ri-add-line ri-lg mr-1"></i> Quick Add
@@ -167,13 +146,7 @@ function LatestProducts() {
           <div className="product-card group">
             <div className="relative overflow-hidden rounded-lg mb-4">
               <div className="product-img h-72 bg-cover bg-center">
-                <Image
-                  src={
-                    "https://readdy.ai/api/search-image?query=premium%20tablet%20device%20on%20clean%20background%2C%20professional%20product%20photography%20with%20soft%20lighting%2C%20high-end%20electronics%20showcase&width=500&height=500&seq=10&orientation=squarish"
-                  }
-                  alt="Tester"
-                  fill={true}
-                />
+                <Image src={latestProduct6} alt="Tester" />
               </div>
               <button className="quick-add absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white text-gray-900 px-4 py-2 rounded-full font-medium text-sm shadow-md hover:bg-primary hover:text-white transition-colors whitespace-nowrap">
                 <i className="ri-add-line ri-lg mr-1"></i> Quick Add
@@ -196,13 +169,7 @@ function LatestProducts() {
           <div className="product-card group">
             <div className="relative overflow-hidden rounded-lg mb-4">
               <div className="product-img h-72 bg-cover bg-center">
-                <Image
-                  src={
-                    "https://readdy.ai/api/search-image?query=elegant%20womens%20handbag%20on%20clean%20background%2C%20professional%20product%20photography%20with%20soft%20lighting%2C%20high-end%20fashion%20accessory%20showcase&width=500&height=500&seq=11&orientation=squarish"
-                  }
-                  alt="Tester"
-                  fill={true}
-                />
+                <Image src={latestProduct7} alt="Tester" />
               </div>
               <button className="quick-add absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white text-gray-900 px-4 py-2 rounded-full font-medium text-sm shadow-md hover:bg-primary hover:text-white transition-colors whitespace-nowrap">
                 <i className="ri-add-line ri-lg mr-1"></i> Quick Add
@@ -225,13 +192,7 @@ function LatestProducts() {
           <div className="product-card group">
             <div className="relative overflow-hidden rounded-lg mb-4">
               <div className="product-img h-72 bg-cover bg-center">
-                <Image
-                  src={
-                    "https://readdy.ai/api/search-image?query=stylish%20mens%20watch%20on%20clean%20background%2C%20professional%20product%20photography%20with%20soft%20lighting%2C%20high-end%20fashion%20accessory%20showcase&width=500&height=500&seq=12&orientation=squarish"
-                  }
-                  alt="Tester"
-                  fill={true}
-                />
+                <Image src={latestProduct8} alt="Tester" />
               </div>
               <button className="quick-add absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white text-gray-900 px-4 py-2 rounded-full font-medium text-sm shadow-md hover:bg-primary hover:text-white transition-colors whitespace-nowrap">
                 <i className="ri-add-line ri-lg mr-1"></i> Quick Add
