@@ -6,7 +6,7 @@ function CategoryCard({ categoryName, categoryImage }: { categoryName: string; c
   return (
     <Link className="group relative h-80 overflow-hidden rounded-lg shadow-md cursor-pointer" href={`/category/${categoryName}`}>
       <div className="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500">
-        <Image src={categoryImage} alt="Tester" width={300} height={400} />
+        <Image src={categoryImage} alt={categoryName} width={300} height={400} />
       </div>
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
       <div className="absolute bottom-0 left-0 p-6">

@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Shop by category",
+  title: "Does it look good?",
   description: "Shop and vibe with the trends",
 };
 
-export default function CategoryLayout({
+export default function ProductLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -13,7 +13,6 @@ export default function CategoryLayout({
   return (
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">Shop by Category</h2>
         {children}
       </div>
     </section>
