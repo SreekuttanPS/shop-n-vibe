@@ -1,10 +1,16 @@
+export type CategoryType = 'clothing_men' | 'clothing_women' | 'electronics' | 'accessories_men' | 'accessories_women' | 'furnitures' | 'others';
+
 export type Product = {
-  id: number;
-  title: string;
+  _id: number;
+  name: string;
   price: number;
   description: string;
-  category: string;
-  image: string;
+  category: CategoryType;
+  imageUrl: string;
+  imageId: string;
+  stock: number;
+  tags: string[];
+  isAvailable: boolean;
   rating: {
     rate: number;
     count: number;
@@ -12,7 +18,7 @@ export type Product = {
 };
 
 export type AllProducts = {
-  [category: string]: {
+  [category in CategoryType]: {
     image: string;
     data: {
       [productId: number]: Product;

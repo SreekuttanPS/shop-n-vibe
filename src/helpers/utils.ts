@@ -1,20 +1,20 @@
 import { AllProducts, Product } from "@/helpers/sharedTypes";
 
 export const categorizeProductData = (products: Product[]): AllProducts => {
-  const allProducts: AllProducts = {};
+  const allProducts = {} as AllProducts;
   products.forEach((product) => {
-    const { category, id } = product;
+    const { category, _id } = product;
     if (!allProducts[category]) {
       allProducts[category] = {
         data: {},
-        image: product?.image,
+        image: product?.imageUrl,
       };
     }
-    allProducts[category].data[id] = product;
+    allProducts[category].data[_id] = product;
   });
   return allProducts;
 };
 
-export const capitalizeFirst = (str: string): string => {
-  return str.charAt(0).toUpperCase() + str.slice(1);
+export const capitalizeFirstAndSplit = (str: string): string => {
+  return (str.charAt(0).toUpperCase() + str.slice(1))?.replaceAll('_', ' ');
 };

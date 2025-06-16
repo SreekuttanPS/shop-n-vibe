@@ -5,7 +5,6 @@ import CategoryCard from "@/Components/CategorySection/CategoryCard";
 import { AllProducts } from "@/helpers/sharedTypes";
 
 function CategoriesSection({ allProducts }: { allProducts: AllProducts }) {
-  console.log('allProducts: ', allProducts);
   return (
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
