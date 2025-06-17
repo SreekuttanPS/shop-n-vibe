@@ -4,10 +4,26 @@ import Image from "next/image";
 import useCartStore from "@/zustand/store";
 import { capitalizeFirstAndSplit } from "@/helpers/utils";
 import RemoveIcon from "@/assets/svg/RemoveIcon";
+import { Product } from "@/helpers/sharedTypes";
 
 export default function Cart() {
   const cartData = useCartStore((state) => state?.cart?.cartData);
+  const decrementQuantity = useCartStore((state) => state?.decrementProductQuantity);
+  const addToCart = useCartStore((state) => state?.addToCart);
+  const removeFromCart = useCartStore((state) => state?.removeFromCart);
   const cartDataArray = Object.values(cartData || {});
+
+  const onDecrement = (productId: string) => {
+    decrementQuantity(productId);
+  };
+
+  const onIncrement = (product: Product) => {
+    addToCart(product);
+  };
+
+    const onRemoveFromCart = (productId: string) => {
+    removeFromCart(productId);
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col items-center p-4 space-y-4">
@@ -27,13 +43,23 @@ export default function Cart() {
           </div>
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:w-[40%]">
             <div className="flex items-center justify-between gap-2 text-gray-700 text-lg font-medium md:w-[30%]">
-              <button className="px-2 text-yellow-500 hover:text-yellow-600 cursor-pointer transition delay-150 duration-300 ease-in-out hover:scale-200">-</button>
+              <button
+                onClick={() => onDecrement(cartItem?.product?._id)}
+                className="px-2 text-yellow-500 hover:text-yellow-600 cursor-pointer transition delay-150 duration-300 ease-in-out hover:scale-200"
+              >
+                -
+              </button>
               <span className="text-black">{cartItem?.quantity}</span>
-              <button className="px-2 text-yellow-500 hover:text-yellow-600 cursor-pointer transition delay-150 duration-300 ease-in-out hover:scale-200">+</button>
+              <button
+                onClick={() => onIncrement(cartItem?.product)}
+                className="px-2 text-yellow-500 hover:text-yellow-600 cursor-pointer transition delay-150 duration-300 ease-in-out hover:scale-200"
+              >
+                +
+              </button>
             </div>
             <div className="flex md:flex-row items-center justify-between md:gap-6">
               <div className="text-xl font-bold text-gray-800 whitespace-nowrap">₹{cartItem?.product?.price}</div>
-              <button className="text-yellow-500 hover:text-yellow-600 text-xl ml-2 cursor-pointer transition delay-150 duration-300 ease-in-out hover:scale-110">
+              <button onClick={() => onRemoveFromCart(cartItem?.product?._id)} className="text-yellow-500 hover:text-yellow-600 text-xl ml-2 cursor-pointer transition delay-150 duration-300 ease-in-out hover:scale-110">
                 <RemoveIcon />
               </button>
             </div>
