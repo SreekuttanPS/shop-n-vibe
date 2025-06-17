@@ -16,5 +16,11 @@ export const categorizeProductData = (products: Product[]): AllProducts => {
 };
 
 export const capitalizeFirstAndSplit = (str: string): string => {
-  return (str.charAt(0).toUpperCase() + str.slice(1))?.replaceAll('_', ' ');
+  return (str.charAt(0).toUpperCase() + str.slice(1))?.replaceAll("_", " ");
 };
+
+export function removeKey<T extends object, K extends keyof T>(obj: T, keyToRemove: K): Omit<T, K> {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { [keyToRemove]: _, ...rest } = obj;
+  return rest;
+}
