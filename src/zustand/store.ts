@@ -44,7 +44,7 @@ const useCartStore = create<State & Actions>((set) => ({
     set((state) => ({
       ...state,
       cart: {
-        cartCount: state.cart.cartCount - 1,
+        cartCount: state.cart.cartCount - state?.cart?.cartData?.[productId].quantity || 1,
         cartData: removeKey(state.cart.cartData, productId),
       },
     })),
