@@ -1,8 +1,10 @@
-import CartIcon from "@/assets/svg/CartIcon";
-import { Product } from "@/helpers/sharedTypes";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+
+import AddToCartButton from "@/Components/AddToCartButton";
+
+import { Product } from "@/helpers/sharedTypes";
 
 function ProductCard({ product }: { product: Product }) {
   return (
@@ -11,11 +13,12 @@ function ProductCard({ product }: { product: Product }) {
         <div className="product-img h-72 bg-cover bg-center">
           <Image src={product?.imageUrl} alt={product?.name} width={300} height={400} />
         </div>
-        <button className="quick-add absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white text-gray-900 px-4 py-2 rounded-full font-medium text-sm shadow-md hover:bg-primary transition-colors whitespace-nowrap cursor-pointer">
-          <div className="flex gap-2">
-            <CartIcon /> Quick Add
-          </div>
-        </button>
+        <div className="w-full flex justify-center mb-3">
+          <AddToCartButton
+            product={product}
+            className="text-gray-900 px-4 py-2 rounded-full font-medium text-sm shadow-md bg-white whitespace-nowrap cursor-pointer translate-y-2 duration-[0.3s] ease-out opacity-0 group-hover:translate-y-0 group-hover:opacity-100"
+          />
+        </div>
       </div>
       <h3 className="font-medium text-gray-900 mb-1">{product?.name}</h3>
       <div className="flex justify-between items-center">

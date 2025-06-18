@@ -1,6 +1,6 @@
 "use client";
 import CartIcon from "@/assets/svg/CartIcon";
-import useCartStore from "@/zustand/store";
+import useCartStore from "@/zustand/cart";
 import Link from "next/link";
 import React from "react";
 

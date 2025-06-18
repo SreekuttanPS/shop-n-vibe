@@ -2,7 +2,7 @@
 import CartCheckedIcon from "@/assets/svg/CartCheckedIcon";
 import CartIcon from "@/assets/svg/CartIcon";
 import { Product } from "@/helpers/sharedTypes";
-import useCartStore from "@/zustand/store";
+import useCartStore from "@/zustand/cart";
 import React from "react";
 
 type Props = {
@@ -18,7 +18,9 @@ function AddToCartButton({ product, buttonText = "Add to cart", className = defa
   const addToCart = useCartStore((state) => state?.addToCart);
   const cartData = useCartStore((state) => state?.cart?.cartData?.[product?._id]);
 
-  const onAddToCart = () => {
+  const onAddToCart = (e: React.MouseEvent) => {
+    e.stopPropagation(); // prevent the event from bubbling up
+    e.preventDefault(); // stops the Link from triggering
     addToCart(product);
   };
   return (

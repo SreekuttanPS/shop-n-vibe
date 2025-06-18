@@ -4,6 +4,7 @@ import Link from "next/link";
 import GoToCartButton from "@/Components/HeaderSection/GoToCartButton";
 // import SearchBar from "@/Components/HeaderSection/SearchBar";
 // import UserButton from "@/Components/HeaderSection/UserButton";
+import Toast from "@/Components/Toast";
 
 import MenuIcon from "@/assets/svg/MenuIcon";
 
@@ -43,6 +44,7 @@ function Header() {
           </div>
         </div>
       </div>
+      <Toast />
     </header>
   );
 }

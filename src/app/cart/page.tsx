@@ -1,10 +1,11 @@
 "use client";
 import Image from "next/image";
 
-import useCartStore from "@/zustand/store";
+import useCartStore from "@/zustand/cart";
 import { capitalizeFirstAndSplit } from "@/helpers/utils";
 import RemoveIcon from "@/assets/svg/RemoveIcon";
 import { Product } from "@/helpers/sharedTypes";
+import useToastStore from "@/zustand/toast";
 
 export default function Cart() {
   const cartData = useCartStore((state) => state?.cart?.cartData);
@@ -12,6 +13,11 @@ export default function Cart() {
   const addToCart = useCartStore((state) => state?.addToCart);
   const removeFromCart = useCartStore((state) => state?.removeFromCart);
   const cartDataArray = Object.values(cartData || {});
+
+  const toastSuccess = useToastStore((state) => state?.toastSuccess);
+  const toastError = useToastStore((state) => state?.toastError);
+  const toastWarning = useToastStore((state) => state?.toastWarning);
+
 
   const onDecrement = (productId: string) => {
     decrementQuantity(productId);
@@ -21,12 +27,12 @@ export default function Cart() {
     addToCart(product);
   };
 
-    const onRemoveFromCart = (productId: string) => {
+  const onRemoveFromCart = (productId: string) => {
     removeFromCart(productId);
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col items-center p-4 space-y-4">
+    <div className="bg-gray-50 flex flex-col items-center p-4 space-y-4">
       {cartDataArray?.map((cartItem) => (
         <div className="w-full max-w-4xl bg-white shadow-md rounded-xl p-4 flex md:flex-row flex-col md:justify-between items-center gap-6" key={cartItem?.product?._id}>
           <div className="flex flex-col md:flex-row items-center gap-6">
@@ -59,13 +65,23 @@ export default function Cart() {
             </div>
             <div className="flex md:flex-row items-center justify-between md:gap-6">
               <div className="text-xl font-bold text-gray-800 whitespace-nowrap">₹{cartItem?.product?.price}</div>
-              <button onClick={() => onRemoveFromCart(cartItem?.product?._id)} className="text-yellow-500 hover:text-yellow-600 text-xl ml-2 cursor-pointer transition delay-150 duration-300 ease-in-out hover:scale-110">
+              <button
+                onClick={() => onRemoveFromCart(cartItem?.product?._id)}
+                className="text-yellow-500 hover:text-yellow-600 text-xl ml-2 cursor-pointer transition delay-150 duration-300 ease-in-out hover:scale-110"
+              >
                 <RemoveIcon />
               </button>
             </div>
           </div>
         </div>
       ))}
+      <button onClick={() => toastSuccess('Success')}>BRUH</button>
+      <br />
+      <br />
+      <button onClick={() => toastError('Error')}>BRUH</button>
+      <br />
+      <br />
+      <button onClick={() => toastWarning('Warning')}>BRUH</button>
     </div>
   );
 }
