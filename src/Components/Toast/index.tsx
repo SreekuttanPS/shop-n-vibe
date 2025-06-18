@@ -7,8 +7,6 @@ import { isEmpty } from "@/helpers/utils";
 const Toast = () => {
   const toasts = useToastStore((state) => state?.toast);
 
-  console.log('toasts index: ', toasts);
-
   if (isEmpty(toasts)) {
     return null;
   }

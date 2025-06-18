@@ -5,10 +5,6 @@ import React, { useEffect, useState } from "react";
 const ToastInnerComponent = ({ toastColor, toastText }: { toastColor: "red" | "green" | "yellow"; toastText: string }) => {
   const closeToast = useToastStore((state) => state?.closeToast);
   
-  const toast = useToastStore((state) => state?.toast);
-  console.log('toast: ', toast);
-  console.log('toastColor: ', toastColor);
-
   const [animate, setAnimate] = useState(false);
 
   useEffect(() => {

@@ -19,8 +19,6 @@ export default async function Products({ params }: Props) {
     .then((response) => response.json())
     .then((data) => data);
 
-  console.log("product: ", product);
-
   return (
     <>
       <h2 className="text-3xl font-bold text-center mb-12 md:hidden">{product?.name}</h2>
