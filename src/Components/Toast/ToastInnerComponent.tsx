@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 
 const ToastInnerComponent = ({ toastColor, toastText }: { toastColor: "red" | "green" | "yellow"; toastText: string }) => {
   const closeToast = useToastStore((state) => state?.closeToast);
-  
+
   const [animate, setAnimate] = useState(false);
 
   useEffect(() => {
@@ -27,9 +27,33 @@ const ToastInnerComponent = ({ toastColor, toastText }: { toastColor: "red" | "g
     };
   }, [closeToast]);
 
+  if (toastColor === "red") {
+    return (
+      <div
+        className={`mb-2 flex items-center gap-4 bg-red-500 text-white px-4 py-3 rounded-lg shadow-lg transition-all duration-700 ${
+          animate ? "opacity-100 translate-x-0" : "opacity-0 translate-x-5"
+        }`}
+      >
+        <p className="text-sm">{toastText}</p>
+      </div>
+    );
+  }
+
+  if (toastColor === "green") {
+    return (
+      <div
+        className={`mb-2 flex items-center gap-4 bg-green-500 text-white px-4 py-3 rounded-lg shadow-lg transition-all duration-700 ${
+          animate ? "opacity-100 translate-x-0" : "opacity-0 translate-x-5"
+        }`}
+      >
+        <p className="text-sm">{toastText}</p>
+      </div>
+    );
+  }
+
   return (
     <div
-      className={`mb-2 flex items-center gap-4 bg-${toastColor}-500 text-white px-4 py-3 rounded-lg shadow-lg transition-all duration-700 ${
+      className={`mb-2 flex items-center gap-4 bg-yellow-500 text-white px-4 py-3 rounded-lg shadow-lg transition-all duration-700 ${
         animate ? "opacity-100 translate-x-0" : "opacity-0 translate-x-5"
       }`}
     >
