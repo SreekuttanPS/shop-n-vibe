@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import AddToCartButton from "@/Components/AddToCartButton";
 
@@ -29,14 +30,17 @@ export default async function Products({ params }: Props) {
           <div className="mt-3 font-medium text-gray-900">{product?.description}</div>
           <div className="flex flex-row gap-4 mt-5">
             <AddToCartButton product={product} />
-            <button className="text-gray-900 px-4 py-2 rounded-full font-medium text-sm shadow-lg bg-orange-300 whitespace-nowrap cursor-pointer transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110">
+            <Link
+              href={"/cart"}
+              className="text-gray-900 px-4 py-2 rounded-full font-medium text-sm shadow-lg bg-orange-300 whitespace-nowrap cursor-pointer transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+            >
               <div className="flex items-center gap-2">
                 <div>
                   <CreditCardIcon />
                 </div>
                 Buy Now
               </div>
-            </button>
+            </Link>
           </div>
         </div>
       </div>

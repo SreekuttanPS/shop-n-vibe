@@ -23,13 +23,27 @@ const CartListing = () => {
   const toastSuccess = useToastStore((state) => state?.toastSuccess);
   const toastError = useToastStore((state) => state?.toastError);
 
+  if (!cartDataArray?.length) {
+    return (
+      <div className="bg-gray-50 flex flex-col items-center p-4 md:p-1 space-y-4 md:w-full">
+        <h2 className="text-3xl font-bold text-center mb-12">Cart</h2>
+        <p className="text-gray-500">
+          Ayooo cart is empty.{' '}
+          <Link href={"/"} className="text-yellow-500 hover:text-yellow-600">
+            Start shopping yo!
+          </Link>
+        </p>
+      </div>
+    );
+  }
+
   const closeModal = () => {
     setShowAlert(false);
   };
 
   const onDecrement = (productId: string, count: number) => {
     if (count > 1) {
-      toastError("Successfully removed from Cart!");
+      toastSuccess("Successfully removed from Cart!");
       decrementQuantity(productId);
     } else {
       setDeletingProduct(productId);
@@ -59,7 +73,8 @@ const CartListing = () => {
   };
 
   return (
-    <div className="bg-gray-50 flex flex-col items-center p-4 space-y-4">
+    <div className="bg-gray-50 flex flex-col items-center p-4 md:p-1 space-y-4 md:w-full">
+      <h2 className="text-3xl font-bold text-center mb-12">Cart</h2>
       {cartDataArray?.map((cartItem) => (
         <div className="w-full max-w-4xl bg-white shadow-md rounded-xl p-4 flex md:flex-row flex-col md:justify-between items-center gap-6" key={cartItem?.product?._id}>
           <Link href={`products/${cartItem?.product?._id}`} className="flex flex-col md:flex-row items-center gap-6">
@@ -94,7 +109,7 @@ const CartListing = () => {
               <div className="text-xl font-bold text-gray-800 whitespace-nowrap">₹{cartItem?.product?.price}</div>
               <button
                 onClick={() => onRemoveFromCart(cartItem?.product?._id)}
-                className="text-yellow-500 hover:text-yellow-600 text-xl ml-2 cursor-pointer transition delay-150 duration-300 ease-in-out hover:scale-110"
+                className="text-yellow-500 hover:text-yellow-600 text-xl ml-2 cursor-pointer transition delay-150 duration-300 ease-in-out hover:scale-135"
               >
                 <RemoveIcon />
               </button>
@@ -110,6 +125,7 @@ const CartListing = () => {
             </button>
             <div className="py-8">
               <h3 className="font-bold text-lg text-gray-900 text-center">Remove from Cart?</h3>
+              <p className="text-gray-600 text-center mt-2">We don&apos;t care if you don&apos;t buy this homie.</p>
               <div className="flex justify-center gap-4 mt-8">
                 <button className="bg-green-300 rounded-full px-2 py-1 shadow-md cursor-pointer hover:scale-105 hover:bg-green-400" onClick={closeModal}>
                   No, Go back

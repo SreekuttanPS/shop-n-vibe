@@ -12,7 +12,7 @@ function Features() {
             </div>
             <h3 className="text-xl font-bold mb-2">Free Shipping</h3>
             <p className="text-gray-600">
-              Free shipping on all orders over $50. International shipping available.
+              Free shipping on all orders over ₹50. International shipping available.
             </p>
           </div>
 
