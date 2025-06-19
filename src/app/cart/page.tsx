@@ -7,6 +7,7 @@ import RemoveIcon from "@/assets/svg/RemoveIcon";
 import { Product } from "@/helpers/sharedTypes";
 import useToastStore from "@/zustand/toast";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Cart() {
   const [showAlert, setShowAlert] = useState(false);
@@ -55,13 +56,11 @@ export default function Cart() {
     setShowAlert(true);
   };
 
-  console.log("deletingProduct: ", deletingProduct);
-
   return (
     <div className="bg-gray-50 flex flex-col items-center p-4 space-y-4">
       {cartDataArray?.map((cartItem) => (
         <div className="w-full max-w-4xl bg-white shadow-md rounded-xl p-4 flex md:flex-row flex-col md:justify-between items-center gap-6" key={cartItem?.product?._id}>
-          <div className="flex flex-col md:flex-row items-center gap-6">
+          <Link href={`products/${cartItem?.product?._id}`} className="flex flex-col md:flex-row items-center gap-6">
             <Image src={cartItem?.product?.imageUrl} alt={cartItem?.product?.name} width={150} height={200} className="w-28 h-28 object-contain rounded-lg" />
 
             <div className="flex flex-col flex-grow md:w-[30%]">
@@ -72,7 +71,7 @@ export default function Cart() {
                 {cartItem?.product?.rateCount ? `${cartItem?.product?.rateCount} People rated this product` : "No rating available"}
               </p>
             </div>
-          </div>
+          </Link>
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:w-[40%]">
             <div className="flex items-center justify-between gap-2 text-gray-700 text-lg font-medium md:w-[30%]">
               <button
@@ -104,13 +103,13 @@ export default function Cart() {
       {showAlert ? (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-2">
           <div className="relative w-full max-w-md rounded-2xl bg-white shadow-xl transition-all duration-300">
-            <button className="absolute top-2 right-2 text-gray-500 hover:text-red-500 scale-200 px-2 cursor-pointer" onClick={() => closeModal()}>
+            <button className="absolute top-2 right-2 text-gray-500 hover:text-red-500 scale-200 px-2 cursor-pointer" onClick={closeModal}>
               &times;
             </button>
             <div className="py-8">
               <h3 className="font-bold text-lg text-gray-900 text-center">Remove from Cart?</h3>
               <div className="flex justify-center gap-4 mt-8">
-                <button className="bg-green-300 rounded-full px-2 py-1 shadow-md cursor-pointer hover:scale-105 hover:bg-green-400" onClick={() => closeModal()}>
+                <button className="bg-green-300 rounded-full px-2 py-1 shadow-md cursor-pointer hover:scale-105 hover:bg-green-400" onClick={closeModal}>
                   No, Go back
                 </button>
                 <button

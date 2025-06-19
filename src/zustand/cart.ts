@@ -3,7 +3,7 @@ import { removeKey } from "@/helpers/utils";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-type State = {
+export type CartState = {
   cart: {
     cartCount: number;
     cartData: {
@@ -22,7 +22,7 @@ type Actions = {
   resetCart: () => void;
 };
 
-export const useCartStore = create<State & Actions>()(
+export const useCartStore = create<CartState & Actions>()(
   persist(
     (set) => ({
       cart: {
