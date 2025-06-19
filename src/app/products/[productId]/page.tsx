@@ -16,7 +16,8 @@ type Props = {
 const baseUrl = process.env.BACKEND_API;
 
 export default async function Products({ params }: Props) {
-  const product: Product = await fetch(`${baseUrl}/api/products/${params.productId}`)
+  const { productId } =  await params;
+  const product: Product = await fetch(`${baseUrl}/api/products/${productId}`)
     .then((response) => response.json())
     .then((data) => data);
 

@@ -47,7 +47,7 @@ export const useCartStore = create<CartState & Actions>()(
         set((state) => ({
           ...state,
           cart: {
-            cartCount: state.cart.cartCount - state?.cart?.cartData?.[productId]?.quantity || 1,
+            cartCount: state.cart.cartCount - state?.cart?.cartData?.[productId]?.quantity,
             cartData: removeKey(state.cart.cartData, productId),
           },
         })),

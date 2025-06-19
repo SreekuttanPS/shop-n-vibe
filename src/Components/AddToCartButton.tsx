@@ -3,6 +3,7 @@ import CartCheckedIcon from "@/assets/svg/CartCheckedIcon";
 import CartIcon from "@/assets/svg/CartIcon";
 import { Product } from "@/helpers/sharedTypes";
 import useCartStore from "@/zustand/cart";
+import useToastStore from "@/zustand/toast";
 import React from "react";
 
 type Props = {
@@ -17,11 +18,14 @@ const defaultClassName =
 function AddToCartButton({ product, buttonText = "Add to cart", className = defaultClassName }: Props) {
   const addToCart = useCartStore((state) => state?.addToCart);
   const cartData = useCartStore((state) => state?.cart?.cartData?.[product?._id]);
+  const toastSuccess = useToastStore((state) => state?.toastSuccess);
+
 
   const onAddToCart = (e: React.MouseEvent) => {
     e.stopPropagation(); // prevent the event from bubbling up
     e.preventDefault(); // stops the Link from triggering
     addToCart(product);
+    toastSuccess("Successfully added to Cart!");
   };
   return (
     <button className={className} onClick={onAddToCart}>
