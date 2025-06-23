@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Vibin Mart",
+  title: "Shop N Vibe",
   description: "Shop and vibe with the trends",
 };
 

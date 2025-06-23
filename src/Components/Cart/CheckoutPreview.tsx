@@ -1,14 +1,15 @@
 "use client";
-import CreditCardIcon from "@/assets/svg/CreditCardIcon";
-import useCartStore from "@/zustand/cart";
 import React, { useMemo } from "react";
+
+import useCartStore from "@/zustand/cart";
+
+import CheckoutModal from "@/Components/Checkout/CheckoutModal";
+
+import CreditCardIcon from "@/assets/svg/CreditCardIcon";
 
 const CheckoutPreview = ({ className = "" }: { className?: string }) => {
   const cartData = useCartStore((state) => state?.cart?.cartData);
   const cartCount = useCartStore((state) => state?.cart?.cartCount);
-
-  console.log("cartData: ", cartData);
-  console.log("cartCount: ", cartCount);
 
   const totalPrice = useMemo(() => {
     let total = 0;
@@ -49,24 +50,42 @@ const CheckoutPreview = ({ className = "" }: { className?: string }) => {
           <div className="font-bold text-lg text-gray-900">Estimated total</div>
           <div className="font-bold text-lg text-gray-900">₹{estimatedTotal?.toFixed(2)}</div>
         </div>
-        <button className="hidden md:block w-[90%] flex justify-center text-gray-900 px-4 py-2 rounded-full font-medium text-sm shadow-lg bg-orange-300 whitespace-nowrap cursor-pointer transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-105">
-          <div className="flex items-center justify-center gap-2">
-            <div>
-              <CreditCardIcon />
-            </div>
-            Buy Now
-          </div>
-        </button>
-        <div className="md:hidden relative">
-          <button className="fixed bottom-0 right-0 left-0 w-full h-15 flex justify-center text-gray-900 px-4 py-2 font-medium text-sm inset-shadow-sm bg-orange-300 whitespace-nowrap cursor-pointer transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-105">
-            <div className="flex items-center gap-2">
-              <div>
-                <CreditCardIcon />
+        <CheckoutModal
+          estimatedTotal={estimatedTotal}
+          renderCheckoutButton={(onBuyNow, isLoading) => (
+            <button
+              onClick={onBuyNow}
+              className="hidden md:block w-[90%] flex justify-center text-gray-900 px-4 py-2 rounded-full font-medium text-sm shadow-lg bg-orange-300 whitespace-nowrap cursor-pointer transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-105"
+              disabled={isLoading}
+            >
+              <div className="flex items-center justify-center gap-2">
+                <div>
+                  <CreditCardIcon />
+                </div>
+                Buy Now
               </div>
-              Buy Now
+            </button>
+          )}
+        />
+        <CheckoutModal
+          estimatedTotal={estimatedTotal}
+          renderCheckoutButton={(onBuyNow, isLoading) => (
+            <div className="md:hidden relative">
+              <button
+                onClick={onBuyNow}
+                className="fixed bottom-0 right-0 left-0 w-full h-15 flex justify-center text-gray-900 px-4 py-2 font-medium text-sm inset-shadow-sm bg-orange-300 whitespace-nowrap cursor-pointer transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-105"
+                disabled={isLoading}
+              >
+                <div className="flex items-center gap-2">
+                  <div>
+                    <CreditCardIcon />
+                  </div>
+                  Buy Now
+                </div>
+              </button>
             </div>
-          </button>
-        </div>
+          )}
+        />
       </div>
     </div>
   );
