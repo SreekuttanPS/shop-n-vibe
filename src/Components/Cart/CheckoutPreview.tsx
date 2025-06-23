@@ -23,7 +23,7 @@ const CheckoutPreview = ({ className = "" }: { className?: string }) => {
 
   const shippingCharge = useMemo(() => (subTotal > 50 ? 0 : 40), [subTotal]);
 
-  const estimatedTotal = useMemo(() => subTotal + shippingCharge, [shippingCharge, subTotal]);
+  const estimatedTotal = useMemo(() => Number((subTotal + shippingCharge)?.toFixed(2)), [shippingCharge, subTotal]);
 
   if (!cartCount) {
     return null;
@@ -48,7 +48,7 @@ const CheckoutPreview = ({ className = "" }: { className?: string }) => {
         <div className="border w-[98%] border-gray-300"></div>
         <div className="flex flex-row justify-between w-full">
           <div className="font-bold text-lg text-gray-900">Estimated total</div>
-          <div className="font-bold text-lg text-gray-900">₹{estimatedTotal?.toFixed(2)}</div>
+          <div className="font-bold text-lg text-gray-900">₹{estimatedTotal}</div>
         </div>
         <CheckoutModal
           estimatedTotal={estimatedTotal}

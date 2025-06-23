@@ -25,27 +25,37 @@ export default function CheckoutModal({ renderCheckoutButton, estimatedTotal }: 
 
   const onCheckout = () => {
     setIsOpen(true);
-    setIsLoading(true);
-    fetch(`${baseUrl}/api/payments/create-payment-intent`, {
-      headers: {
-        "Content-Type": "application/json",
-      },
-      method: "POST",
-      body: JSON.stringify({ amount: estimatedTotal }),
-    })
-      .then((res) => res.json())
-      .then((response) => {
-        if (response?.clientSecret) {
-          setClientSecret(response?.clientSecret);
-        } else {
-          toastError("Error occured, Please try again!");
-        }
-        setIsLoading(false);
+    if (!clientSecret) {
+      setIsLoading(true);
+      fetch(`${baseUrl}/api/payments/create-payment-intent`, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+        body: JSON.stringify({ amount: estimatedTotal }),
       })
-      .catch((err) => {
-        toastError(err?.message);
-      })
-      .finally(() => setIsLoading(false));
+        .then((res) => res.json())
+        .then((response) => {
+          if (response?.clientSecret) {
+            setClientSecret(response?.clientSecret);
+          } else {
+            toastError("Error occured, Please try again!");
+          }
+          setIsLoading(false);
+        })
+        .catch((err) => {
+          toastError(err?.message);
+        })
+        .finally(() => setIsLoading(false));
+    }
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+
+  const clearClientSecret = () => {
+    setClientSecret("");
   };
 
   return (
@@ -63,7 +73,7 @@ export default function CheckoutModal({ renderCheckoutButton, estimatedTotal }: 
           ) : null}
           {!isLoading && clientSecret ? (
             <Elements stripe={stripePromise || ""} options={{ clientSecret }}>
-              <CheckoutForm clientSecret={clientSecret} />
+              <CheckoutForm clientSecret={clientSecret} closeModal={closeModal} clearClientSecret={clearClientSecret} />
             </Elements>
           ) : null}
         </div>
