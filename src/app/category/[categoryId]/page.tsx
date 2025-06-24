@@ -1,15 +1,16 @@
 import { CategoryType, Product } from "@/helpers/sharedTypes";
 import ProductCard from "@/Components/LatestProducts/ProductCard";
 
+type Params = Promise<{ categoryId: string }>;
+
 type Props = {
-  params: {
-    categoryId: string;
-  };
+  params: Params;
 };
 
 const baseUrl = process.env.BACKEND_API;
 
-export default async function Categories({ params }: Props) {
+export default async function Categories(props: Props) {
+  const params = await props?.params;
   const allProducts: Product[] = await fetch(`${baseUrl}/api/products?category=${params.categoryId as CategoryType}`)
     .then((response) => response.json())
     .then((data) => data);
