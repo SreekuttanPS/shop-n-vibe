@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 
 import CategoriesSection from "@/Components/CategorySection";
 import HeroSection from "@/Components/HeroSection";
-import LatestProducts from "@/Components/LatestProducts";
+import LatestProducts from "@/Components/Products";
 import { Product } from "@/helpers/sharedTypes";
 import { categorizeProductData } from "@/helpers/utils";
 

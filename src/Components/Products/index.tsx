@@ -1,6 +1,6 @@
 import React from "react";
 
-import ProductCard from "@/Components/LatestProducts/ProductCard";
+import ProductCard from "@/Components/Products/ProductCard";
 
 import { Product } from "@/helpers/sharedTypes";
 

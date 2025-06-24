@@ -1,5 +1,5 @@
 import { CategoryType, Product } from "@/helpers/sharedTypes";
-import ProductCard from "@/Components/LatestProducts/ProductCard";
+import ProductCard from "@/Components/Products/ProductCard";
 
 type Params = Promise<{ categoryId: string }>;
 
