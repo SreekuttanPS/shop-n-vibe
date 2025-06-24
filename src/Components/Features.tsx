@@ -34,7 +34,7 @@ function Features() {
             </div>
             <h3 className="text-xl font-bold mb-2">Secure Payments</h3>
             <p className="text-gray-600">
-              Multiple secure payment options. Your data is always protected.
+              Secure payment option. Your data is always protected.
             </p>
           </div>
         </div>

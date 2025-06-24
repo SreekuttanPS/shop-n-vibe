@@ -1,34 +1,25 @@
+import Image from "next/image";
 import React from "react";
+
+// import heroImage from "@/assets/images/Main-optimized.webp";
+import heroImage from "@/assets/images/hero_image.webp";
 
 function HeroSection() {
   return (
-    <section className="relative h-[500px] overflow-hidden">
-      <div
-        style={{
-          backgroundImage:
-            "url('https://readdy.ai/api/search-image?query=modern%20fashion%20e-commerce%20hero%20image%20with%20stylish%20models%20on%20the%20right%20side%20and%20clean%20empty%20space%20on%20the%20left%20side%20for%20text%2C%20high-end%20fashion%20photography%20with%20soft%20lighting%20and%20minimalist%20aesthetic%2C%20professional%20product%20showcase&width=1920&height=800&seq=1&orientation=landscape')",
-        }}
-        className="absolute inset-0 bg-cover bg-center"
-      ></div>
-      <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent"></div>
-      <div className="container mx-auto px-4 h-full flex items-center">
-        <div className="w-full md:w-1/2 relative z-10">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
-            Summer Collection 2025
-          </h1>
-          <p className="text-lg text-gray-600 mb-8 max-w-md">
-            Discover the latest trends in fashion and electronics with our new summer collection. Up
-            to 40% off on selected items.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <button className="bg-primary text-white px-6 py-3 font-medium !rounded-button whitespace-nowrap hover:bg-primary/90 transition-colors">
-              Shop Now
-            </button>
-            <button className="bg-white text-gray-900 px-6 py-3 font-medium border border-gray-200 !rounded-button whitespace-nowrap hover:bg-gray-50 transition-colors">
-              View Lookbook
-            </button>
-          </div>
+    <section className="flex bg-[#FCFAF6] justify-center relative">
+      <div className="w-[90%] py-6 px-5 bg-[#ffffffc7] md:bg-transparent rounded-xl flex flex-col items-center justify-center absolute left-[50%] bottom-0 md:static md:top-[50%] transform translate-x-[-50%] md:translate-none">
+        <h1 className="text-center text-xl md:text-4xl font-bold text-gray-900 mb-4">Summer Collection 2025</h1>
+        <p className="text-sm md:text-lg text-gray-600 w-[250px] md:w-[400px] lg:w-[500px] text-center mb-5">
+          Discover the latest trends in fashion and electronics with our new summer collection. Up to 40% off on selected items.
+        </p>
+        <div className="flex">
+          <button className="text-[12px] cursor-pointer md:text-lg rounded bg-green-300 px-4 md:py-3 mg:mx-2 mx-1 py-1">Shop Now</button>
+          <button className="text-[12px] cursor-pointer md:text-lg rounded bg-green-300 px-4 md:py-3 mg:mx-2 mx-1 py-1">View Lookbook</button>
         </div>
+      </div>
+
+      <div className="">
+        <Image alt="Hero Section Image" src={heroImage} />
       </div>
     </section>
   );

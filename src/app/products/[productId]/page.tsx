@@ -1,11 +1,10 @@
 import Image from "next/image";
-import Link from "next/link";
 
 import AddToCartButton from "@/Components/AddToCartButton";
 
 import { Product } from "@/helpers/sharedTypes";
 
-import CreditCardIcon from "@/assets/svg/CreditCardIcon";
+import BuyButton from "@/Components/Products/BuyButton";
 
 type Params = Promise<{ productId: string }>;
 
@@ -31,17 +30,7 @@ export default async function Products(props: Props) {
           <div className="mt-3 font-medium text-gray-900">{product?.description}</div>
           <div className="flex flex-row gap-4 mt-5">
             <AddToCartButton product={product} />
-            <Link
-              href={"/cart"}
-              className="text-gray-900 px-4 py-2 rounded-full font-medium text-sm shadow-lg bg-orange-300 whitespace-nowrap cursor-pointer transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
-            >
-              <div className="flex items-center gap-2">
-                <div>
-                  <CreditCardIcon />
-                </div>
-                Buy Now
-              </div>
-            </Link>
+            <BuyButton product={product} />
           </div>
         </div>
       </div>
