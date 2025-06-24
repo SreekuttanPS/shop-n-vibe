@@ -3,14 +3,14 @@ import ProductCard from "@/Components/LatestProducts/ProductCard";
 
 type Props = {
   params: {
-    categoryId: CategoryType;
+    categoryId: string;
   };
 };
 
 const baseUrl = process.env.BACKEND_API;
 
 export default async function Categories({ params }: Props) {
-  const allProducts: Product[] = await fetch(`${baseUrl}/api/products?category=${params.categoryId}`)
+  const allProducts: Product[] = await fetch(`${baseUrl}/api/products?category=${params.categoryId as CategoryType}`)
     .then((response) => response.json())
     .then((data) => data);
 
