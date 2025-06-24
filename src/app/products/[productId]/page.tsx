@@ -3,20 +3,20 @@ import Link from "next/link";
 
 import AddToCartButton from "@/Components/AddToCartButton";
 
-import { CategoryType, Product } from "@/helpers/sharedTypes";
+import { Product } from "@/helpers/sharedTypes";
 
 import CreditCardIcon from "@/assets/svg/CreditCardIcon";
 
+type Params = Promise<{ productId: string }>;
+
 type Props = {
-  params: {
-    productId: CategoryType;
-  };
+  params: Params;
 };
 
 const baseUrl = process.env.BACKEND_API;
 
-export default async function Products({ params }: Props) {
-  const { productId } =  await params;
+export default async function Products(props: Props) {
+  const { productId } = await props?.params;
   const product: Product = await fetch(`${baseUrl}/api/products/${productId}`)
     .then((response) => response.json())
     .then((data) => data);
