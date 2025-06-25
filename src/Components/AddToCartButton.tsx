@@ -20,7 +20,6 @@ function AddToCartButton({ product, buttonText = "Add to cart", className = defa
   const cartData = useCartStore((state) => state?.cart?.cartData?.[product?._id]);
   const toastSuccess = useToastStore((state) => state?.toastSuccess);
 
-
   const onAddToCart = (e: React.MouseEvent) => {
     e.stopPropagation(); // prevent the event from bubbling up
     e.preventDefault(); // stops the Link from triggering

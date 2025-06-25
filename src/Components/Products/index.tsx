@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 import ProductCard from "@/Components/Products/ProductCard";
 
@@ -20,9 +21,12 @@ function LatestProducts({ allProducts }: { allProducts: Product[] }) {
         </div>
 
         <div className="text-center mt-12">
-          <button className="bg-white text-gray-900 px-6 py-3 font-medium border border-gray-200 !rounded-button whitespace-nowrap hover:bg-gray-50 transition-colors">
+          <Link
+            href="/products/all"
+            className="bg-white text-gray-900 px-6 py-3 font-medium border border-gray-200 !rounded-button whitespace-nowrap hover:bg-gray-50 transition-colors"
+          >
             View All Products
-          </button>
+          </Link>
         </div>
       </div>
     </section>

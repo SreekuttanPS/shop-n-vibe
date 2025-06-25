@@ -13,8 +13,8 @@ function HeroSection() {
           Discover the latest trends in fashion and electronics with our new summer collection. Up to 40% off on selected items.
         </p>
         <div className="flex">
-          <button className="text-[12px] cursor-pointer md:text-lg rounded bg-green-300 px-4 md:py-3 mg:mx-2 mx-1 py-1">Shop Now</button>
-          <button className="text-[12px] cursor-pointer md:text-lg rounded bg-green-300 px-4 md:py-3 mg:mx-2 mx-1 py-1">View Lookbook</button>
+          <button className="text-[12px] cursor-pointer md:text-lg rounded border border-gray-400 shadow-md hover:shadow-xl hover:bg-gray-100 hover:scale-101 px-4 md:py-3 mg:mx-2 mx-1 py-1">Shop Now</button>
+          <button className="text-[12px] cursor-pointer md:text-lg rounded border border-gray-400 shadow-md hover:shadow-xl hover:bg-gray-100 hover:scale-101 px-4 md:py-3 mg:mx-2 mx-1 py-1">View Lookbook</button>
         </div>
       </div>
 

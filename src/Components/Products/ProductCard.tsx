@@ -8,7 +8,7 @@ import { Product } from "@/helpers/sharedTypes";
 
 function ProductCard({ product }: { product: Product }) {
   return (
-    <Link href={`/products/${product?._id}`} className="product-card group max-w-[300px]">
+    <Link href={`/products/${product?._id}`} className="product-card group max-w-[300px] mx-auto">
       <div className="relative overflow-hidden rounded-lg cursor-pointer mb-4">
         <div className="product-img h-72 bg-cover bg-center">
           <Image src={product?.imageUrl} alt={product?.name} width={300} height={400} />
